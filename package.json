@@ -1,5 +1,5 @@
 {
-  "name": "new",
+  "name": "",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -7,8 +7,10 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
+    "@azure/data-tables": "^13.3.1",
+    "@azure/functions": "^4.0.0",
+    "@azure/storage-blob": "^12.28.0",
+    "@azure/storage-queue": "^12.27.0"
   },
-  "devDependencies": {},
-  "main": "src/index.js"
+  "main": "src/functions/*.js"
 }
