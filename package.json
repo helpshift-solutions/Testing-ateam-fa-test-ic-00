@@ -12,8 +12,5 @@
     "@azure/storage-blob": "^12.28.0",
     "@azure/storage-queue": "^12.27.0"
   },
-  "devDependencies": {
-    "azure-functions-core-tools": "^4.2.2"
-  },
   "main": "src/functions/*.js"
 }
