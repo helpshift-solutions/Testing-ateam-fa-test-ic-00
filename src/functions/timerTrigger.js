@@ -10,7 +10,7 @@ app.timer("taskCheckerTimer", {
       connectionString,
       tableName
     );
-    const currentTime = new Date();
+    const currentTime = new Date(new Date().toISOString());
     const queueName = "taskqueue";
     const queueClient = new QueueClient(connectionString, queueName);
     await queueClient.createIfNotExists();
