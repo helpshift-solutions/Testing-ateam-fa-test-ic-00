@@ -86,7 +86,7 @@ app.http("addTaskHttp", {
         partitionKey: "tasks",
         rowKey,
         taskName,
-        dueDate,
+        dueDate: new Date(dueDate).toISOString(),
         status: "Pending",
       };
 
