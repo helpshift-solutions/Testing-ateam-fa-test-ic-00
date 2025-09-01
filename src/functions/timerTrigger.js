@@ -16,7 +16,7 @@ app.timer("taskCheckerTimer", {
     await queueClient.createIfNotExists();
     let updatedCount = 0;
     for await (const task of tableClient.listEntities()) {
-      const dueDate = new Date(task.dueDate+"Z");
+      const dueDate = new Date(task.dueDate);
       if (dueDate < currentTime && task.status !== "Overdue") {
         task.status = "Overdue";
         await tableClient.updateEntity(task, "Replace");
@@ -32,7 +32,7 @@ app.timer("taskCheckerTimer", {
       const taskFromQueue = JSON.parse(
         Buffer.from(msg.messageText, "base64").toString()
       );
-      const taskDueDate = new Date(taskFromQueue.dueDate+"Z");
+      const taskDueDate = new Date(taskFromQueue.dueDate);
       if (taskDueDate < currentTime) {
         context.log(
           `:outbox_tray: Dequeuing overdue task from queue: ${taskFromQueue.taskName}`
